@@ -51,3 +51,42 @@ class InvoiceItem:
         tax = subtotal * (self.category.tax_rate / 100)
         return subtotal + tax
 
+class Invoice:
+    invoice_counter = 1000  # class variable for unique IDs
+
+    def __init__(self, customer_name, phone=None, email=None, address=None):
+        self.customer_name = customer_name
+        self.phone = phone or "Not Provided"
+        self.email = email or "Not Provided"
+        self.address = address or "Not Provided"
+        self.items = []
+        Invoice.invoice_counter += 1
+        self.invoice_id = f"INV-{Invoice.invoice_counter}"
+
+    def add_item(self, item):
+        self.items.append(item)
+
+    def show_invoice(self):
+        import datetime
+        print("\n" + "=" * 55)
+        print(f"INVOICE — {self.invoice_id}")
+        print("=" * 55)
+        print(f"Customer Name : {self.customer_name}")
+        print(f"Phone Number  : {self.phone}")
+        print(f"Email         : {self.email}")
+        print(f"Address       : {self.address}")
+        print(f"Date          : {datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')}")
+        print("-" * 55)
+        print(f"{'Item':20} {'Category':10} {'Qty':5} {'Total (₹)':>10}")
+        print("-" * 55)
+
+        total = 0
+        for item in self.items:
+            item_total = item.get_total()
+            total += item_total
+            print(f"{item.name:20} {item.category.name:10} {item.qty:<5} {item_total:>10.2f}")
+
+        print("-" * 55)
+        print(f"{'Grand Total':35} ₹{total:.2f}")
+        print("=" * 55)
+
