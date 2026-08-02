@@ -38,6 +38,7 @@ class GSTCategory:
         print("\n Current GST Rates:")
         for cat, rate in cls.default_rates.items():
             print(f"- {cat.capitalize()}: {rate}%")
+            
 
 class InvoiceItem:
     def __init__(self, name, category, price, qty):
@@ -50,6 +51,7 @@ class InvoiceItem:
         subtotal = self.price * self.qty
         tax = subtotal * (self.category.tax_rate / 100)
         return subtotal + tax
+        
 
 class Invoice:
     invoice_counter = 1000  # class variable for unique IDs
@@ -88,5 +90,36 @@ class Invoice:
 
         print("-" * 55)
         print(f"{'Grand Total':35} ₹{total:.2f}")
-        print("=" * 55)
+        print("=" * 55)class GSTSystem:
+    def __init__(self):
+        self.categories = {}
+
+    def add_category(self, name, tax_rate=None):
+        """Add a category — uses default rate if not provided"""
+        self.categories[name.lower()] = GSTCategory(name, tax_rate)
+
+    def show_categories(self):
+        print("\nAvailable categories:")
+        for name, cat in self.categories.items():
+            print(f"- {cat.name} ({cat.tax_rate}% GST)")
+
+    def get_category(self, name):
+        return self.categories.get(name.lower(), None)
+        
+
+class GSTSystem:
+    def __init__(self):
+        self.categories = {}
+
+    def add_category(self, name, tax_rate=None):
+        """Add a category — uses default rate if not provided"""
+        self.categories[name.lower()] = GSTCategory(name, tax_rate)
+
+    def show_categories(self):
+        print("\nAvailable categories:")
+        for name, cat in self.categories.items():
+            print(f"- {cat.name} ({cat.tax_rate}% GST)")
+
+    def get_category(self, name):
+        return self.categories.get(name.lower(), None)
 
