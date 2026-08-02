@@ -39,3 +39,15 @@ class GSTCategory:
         for cat, rate in cls.default_rates.items():
             print(f"- {cat.capitalize()}: {rate}%")
 
+class InvoiceItem:
+    def __init__(self, name, category, price, qty):
+        self.name = name
+        self.category = category
+        self.price = price
+        self.qty = qty
+
+    def get_total(self):
+        subtotal = self.price * self.qty
+        tax = subtotal * (self.category.tax_rate / 100)
+        return subtotal + tax
+
