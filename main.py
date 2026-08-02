@@ -122,4 +122,56 @@ class GSTSystem:
 
     def get_category(self, name):
         return self.categories.get(name.lower(), None)
+        
 
+if __name__ == "__main__":
+    gst_system = GSTSystem()
+
+    # Load default categories
+    for cat in GSTCategory.default_rates.keys():
+        gst_system.add_category(cat)
+
+    print("Welcome to the Dynamic GST Billing System 💼")
+
+    # Step 1: Customer Details (Optional Inputs)
+    name = input("\nEnter customer name: ").strip()
+    while not name:
+        name = input("Customer name cannot be empty. Please enter again: ").strip()
+
+    phone = input("Enter phone number (optional): ").strip() or None
+    email = input("Enter email (optional): ").strip() or None
+    address = input("Enter address (optional): ").strip() or None
+
+    invoice = Invoice(name, phone, email, address)
+
+    # Step 2: Item Input
+    gst_system.show_categories()
+
+    while True:
+        item_name = input("\nEnter item name (or 'done' to finish): ").strip()
+        if item_name.lower() == 'done':
+            break
+        if not item_name:
+            print("⚠️ Item name cannot be empty!")
+            continue
+
+        category_name = input("Enter category: ").strip().lower()
+        category = gst_system.get_category(category_name)
+        if not category:
+            print("⚠️ Invalid category. Try again.")
+            continue
+
+        try:
+            price = float(input("Enter item price (₹): "))
+            qty = int(input("Enter quantity: "))
+        except ValueError:
+            print("⚠️ Invalid input! Please enter numeric values for price and quantity.")
+            continue
+
+        invoice.add_item(InvoiceItem(item_name, category, price, qty))
+
+    # Step 3: Display final invoice
+    if invoice.items:
+        invoice.show_invoice()
+    else:
+        print("\n⚠️ No items added. Invoice not generated.")
