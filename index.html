@@ -116,3 +116,14 @@
             .span-2-col { grid-column: span 2; }
             .span-1-col-lg { grid-column: span 1; }
         }
+
+        /* === ALIGNMENT FIX === 
+           This new class makes the button's container stretch
+           so it can align its content (the button) properly.
+        */
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%;
+        }
