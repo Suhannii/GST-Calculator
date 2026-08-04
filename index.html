@@ -127,3 +127,34 @@
             justify-content: flex-end;
             height: 100%;
         }
+
+        .input-field, .select-field {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.75rem; /* Increased curve */
+            transition: all 0.15s ease-in-out;
+            background: var(--input-bg);
+            border: 1px solid var(--glass-border);
+            color: #ffffff;
+            box-sizing: border-box; /* Fixes padding issue */
+        }
+        .input-field::placeholder {
+            color: var(--text-medium);
+        }
+        .input-field:focus, .select-field:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+        }
+        .select-field option {
+            background: #2d3748;
+            color: #ffffff;
+        }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            margin-bottom: 0.25rem;
+        }
