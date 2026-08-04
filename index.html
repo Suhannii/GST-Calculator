@@ -80,3 +80,39 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
         header p { color: var(--text-medium); margin-top: 0.5rem; }
+        
+
+         /* 2. Glass Cards (NOW CURVIER) */
+        .card, .summary-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 1.25rem; /* Increased curve */
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        .card-primary {
+            border-top: none;
+        }
+
+        /* 3. Light Text & Inputs (NOW CURVIER) */
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            align-items: end; /* This aligns all grid items to the bottom */
+        }
+        @media (min-width: 768px) {
+            .input-group-2-col { grid-template-columns: repeat(2, 1fr); }
+            .input-group-3-col { grid-template-columns: repeat(3, 1fr); }
+            .input-group-5-col { grid-template-columns: repeat(5, 1fr); }
+            .span-2-col { grid-column: span 2; }
+            .span-1-col-lg { grid-column: span 1; }
+        }
