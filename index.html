@@ -218,3 +218,18 @@
             text-transform: uppercase;
         }
         .item-table td:last-child, .item-table th:last-child { text-align: right; }
+
+        /* Delete button style */
+        .btn-delete {
+            background: none;
+            border: none;
+            color: var(--text-medium);
+            cursor: pointer;
+            font-weight: 600;
+            padding: 0;
+            font-size: 1.1rem;
+            transition: color 0.1s;
+        }
+        .btn-delete:hover { 
+            color: var(--error-color); 
+        }
