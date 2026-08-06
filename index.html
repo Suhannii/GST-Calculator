@@ -313,3 +313,45 @@
                 color: black !important; 
             }
             .container { max-width: none; margin: 0; }
+
+            /* Reset card and panel styles */
+            .card, .summary-panel {
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+                border: none !important;
+                backdrop-filter: none !important;
+                position: static !important;
+                padding: 0 !important;
+            }
+
+            #customerInfoPrint { 
+                display: block !important;
+                margin-top: 1.5rem; 
+                margin-bottom: 2rem; 
+                padding-bottom: 1rem; 
+                border-bottom: 1px solid #ccc;
+                line-height: 1.5;
+                font-size: 1rem;
+                color: black !important;
+            }
+            #customerInfoPrint div { 
+                margin-top: 0.25rem; 
+                color: #333 !important;
+                display: flex;
+            }
+            #customerInfoPrint strong {
+                font-weight: 600;
+                color: black !important;
+                width: 120px;
+                flex-shrink: 0;
+            }
+            
+            .summary-panel {
+                border-top: 1px solid #ccc;
+                padding-top: 1.5rem !important;
+            }
+            .summary-panel h2, .summary-detail, .summary-detail strong, .summary-total, .summary-total span {
+                color: black !important;
+            }
+            .summary-panel h2 { font-size: 1.25rem; border: none; }
