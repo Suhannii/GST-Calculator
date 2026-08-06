@@ -285,3 +285,16 @@
         .msg-loading { background-color: var(--warning-color); color: #1f2937; }
         .msg-error { background-color: var(--error-color); }
         .msg-success { background-color: var(--success-color); color: #1f2937; }
+
+        /* --- Print Styles (FIXED) --- */
+        #customerInfoPrint {
+            display: none;
+        }
+        
+        @media print {
+            body { 
+                background: white !important; 
+                padding: 1rem;
+                color: black !important; 
+            }
+            .container { max-width: none; margin: 0; }
