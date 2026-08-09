@@ -568,4 +568,31 @@
         const formatCurrency = (amount) => `₹${parseFloat(amount).toFixed(2)}`;
         const generateId = () => crypto.randomUUID();
 
+        /**
+         * UPDATED: showMessage now supports 'success', 'error', or 'loading'
+         * type: 'success', 'error', 'loading'
+         */
+        function showMessage(message, type = 'loading') {
+            const box = $('messageBox');
+            box.textContent = message;
+            box.style.display = 'block';
+            
+            box.classList.remove('msg-loading', 'msg-error', 'msg-success');
+
+            if (type === 'success') {
+                box.classList.add('msg-success');
+            } else if (type === 'error') {
+                box.classList.add('msg-error');
+            } else {
+                box.classList.add('msg-loading');
+            }
+
+            // Auto-hide success and loading messages, but not errors
+            if (type !== 'error') {
+                setTimeout(() => {
+                    box.style.display = 'none';
+                }, 3000);
+            }
+        }
+
 
