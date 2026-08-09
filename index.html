@@ -641,4 +641,25 @@
             }
         }
 
+        // 2. Send Items and Fetch Totals
+        async function fetchInvoiceTotals() {
+            const printBtn = $('printInvoiceBtn');
+            if (invoiceItems.length === 0) {
+                renderTotals({ subtotal: 0, totalGST: 0, grandTotal: 0, taxableValue: 0 });
+                renderItems([]);
+                printBtn.disabled = true;
+                return;
+            }
+            printBtn.disabled = false;
+            showMessage('Calculating totals...', 'loading');
+            const payload = { 
+                items: invoiceItems.map(item => ({
+                    itemName: item.name,
+                    categoryName: item.categoryName,
+                    itemPrice: item.price,
+                    itemQty: item.qty,
+                    id: item.id
+                }))
+            };
+
 
