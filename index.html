@@ -732,3 +732,28 @@
                 `;
             }).join('');
         };
+
+        // --- Event Handlers ---
+
+        // handleAddItem (FIXED TYPO)
+        const handleAddItem = () => {
+            const name = $('itemName').value.trim();
+            const price = parseFloat($('itemPrice').value); 
+            const qty = parseInt($('itemQty').value);
+            const categorySelect = $('itemCategory');
+            
+            // === THIS IS THE FIX ===
+            const categoryName = categorySelect.options.length > 0 ? categorySelect.options[categorySelect.selectedIndex].value : '';
+
+            if (!name || isNaN(price) || price <= 0 || isNaN(qty) || qty <= 0 || !categoryName) {
+                showMessage('Please ensure Item Name, Price (> 0), Quantity (> 0), and Category are selected.', 'error');
+                return;
+            }
+
+            const newItem = {
+                id: generateId(), // <-- Generate a unique ID
+                name: name,
+                categoryName: categoryName,
+                price: price,
+                qty: qty
+            };
