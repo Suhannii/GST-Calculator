@@ -697,3 +697,12 @@
             }
         }
 
+        // --- Rendering & UI Management ---
+
+        const renderTotals = (totals) => {
+            $('subtotalDisplay').textContent = formatCurrency(totals.subtotal);
+            $('totalGSTDisplay').textContent = formatCurrency(totals.totalGST);
+            $('taxableValueDisplay').textContent = formatCurrency(totals.taxableValue);
+            $('grandTotalDisplay').textContent = formatCurrency(totals.grandTotal);
+        };
+
