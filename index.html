@@ -757,3 +757,13 @@
                 price: price,
                 qty: qty
             };
+
+            invoiceItems.push(newItem);
+            
+            // Clear item inputs after adding
+            $('itemName').value = '';
+            $('itemPrice').value = '0.00';
+            $('itemQty').value = '1';
+
+            fetchInvoiceTotals();
+        };
