@@ -767,3 +767,12 @@
 
             fetchInvoiceTotals();
         };
+
+        // handleRemoveItem (working)
+        const handleRemoveItem = (event) => {
+            if (event.target.classList.contains('btn-delete')) {
+                const itemId = event.target.getAttribute('data-id');
+                invoiceItems = invoiceItems.filter(item => item.id !== itemId);
+                fetchInvoiceTotals();
+            }
+        };
