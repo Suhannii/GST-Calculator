@@ -836,3 +836,8 @@
                 <div><strong>Invoice Date:</strong> ${currentDate}</div>
              `;
         };
+
+        const handlePrintInvoice = () => {
+            updateInvoiceInfo(); 
+            window.print();
+        };
