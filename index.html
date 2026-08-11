@@ -841,3 +841,34 @@
             updateInvoiceInfo(); 
             window.print();
         };
+
+        // --- Initialization (UPDATED) ---
+
+        function initApp() {
+            invoiceIdCounter = Math.floor(Math.random() * 9000) + 1000;
+            invoiceId = `INV-${invoiceIdCounter}`;
+            
+            fetchCategories();
+            
+            // 3. Bind events
+            $('addItemBtn').addEventListener('click', handleAddItem);
+            $('invoiceItemsTableBody').addEventListener('click', handleRemoveItem);
+            $('printInvoiceBtn').addEventListener('click', handlePrintInvoice);
+            
+            /**
+             * === NEW FEATURE: Bind new category button ===
+             */
+            $('addCategoryBtn').addEventListener('click', handleAddNewCategory);
+            
+            ['customerName', 'customerPhone', 'customerEmail', 'customerAddress'].forEach(id => {
+                $(id).addEventListener('input', updateInvoiceInfo);
+            });
+            
+            updateInvoiceInfo();
+            fetchInvoiceTotals();
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
