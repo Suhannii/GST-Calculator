@@ -776,3 +776,43 @@
                 fetchInvoiceTotals();
             }
         };
+
+        /**
+         * === NEW FEATURE: Handle Add Category ===
+         */
+        const handleAddNewCategory = async () => {
+            const nameInput = $('newCategoryName');
+            const rateInput = $('newCategoryRate');
+            
+            const name = nameInput.value.trim();
+            const rate = parseFloat(rateInput.value);
+
+            if (!name || isNaN(rate) || rate < 0) {
+                showMessage('Please enter a valid category name and a positive rate.', 'error');
+                return;
+            }
+            
+            showMessage('Adding new category...', 'loading');
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/add-category`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, rate: rate })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Server error adding category.');
+                }
+                
+                showMessage('Category added successfully!', 'success');
+                nameInput.value = '';
+                rateInput.value = '';
+                
+                // Refresh the category list in the *other* card
+                await fetchCategories();
+                
+            } catch (error) {
+                showMessage(`Error: ${error.message}`, 'error');
+            }
+        };
