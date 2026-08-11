@@ -816,3 +816,23 @@
                 showMessage(`Error: ${error.message}`, 'error');
             }
         };
+
+        const updateInvoiceInfo = () => {
+             $('invoiceIdDisplay').textContent = invoiceId;
+             const customerInfoPrint = $('customerInfoPrint');
+             const name = $('customerName').value.trim() || 'N/A';
+             const phone = $('customerPhone').value.trim() || 'N/A';
+             const email = $('customerEmail').value.trim() || 'N/A';
+             const address = $('customerAddress').value.trim() || 'N/A';
+             const currentDate = new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+             
+             customerInfoPrint.innerHTML = `
+                <div style="font-weight: 800; font-size: 1.25rem; margin-bottom: 0.75rem;">Billing Details</div>
+                <div><strong>Customer Name:</strong> ${name}</div>
+                <div><strong>Phone Number:</strong> ${phone}</div>
+                <div><strong>Email Address:</strong> ${email}</div>
+                <div><strong>Billing Address:</strong> ${address}</div>
+                <div style="margin-top: 1rem;"><strong>Invoice ID:</strong> ${invoiceId}</div>
+                <div><strong>Invoice Date:</strong> ${currentDate}</div>
+             `;
+        };
