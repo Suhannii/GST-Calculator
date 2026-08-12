@@ -20,3 +20,8 @@ class GSTCategory:
         "personal care products": 5
         
     }
+
+    def __init__(self, name, tax_rate=None):
+        self.name = name
+        # Ensures rate is pulled from defaults if not specified
+        self.tax_rate = tax_rate if tax_rate is not None else self.default_rates.get(name.lower(), 0)
