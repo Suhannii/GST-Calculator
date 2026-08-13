@@ -40,3 +40,12 @@ class GSTCategory:
         # We sort this so the list is always predictable
         sorted_items = sorted(cls.default_rates.items())
         return [{"name": name.capitalize(), "rate": rate} for name, rate in sorted_items]
+
+class InvoiceItem:
+    # --- ADDED 'item_id' ---
+    def __init__(self, name, category, price, qty, item_id):
+        self.name = name
+        self.category = category  # Dictionary: {"name": str, "rate": int}
+        self.price = float(price) # Unit price (Excl. GST)
+        self.qty = int(qty)
+        self.id = item_id # Store the unique ID from the frontend
