@@ -65,3 +65,14 @@ class InvoiceItem:
         """Total price of this item (Incl. GST)"""
         return self.subtotal + self.total_gst
 
+    def to_dict(self):
+        return {
+            'id': self.id, # --- PASS THE ID BACK ---
+            'name': self.name,
+            'category': self.category,
+            'qty': self.qty,
+            'subtotal': round(self.subtotal, 2),
+            'totalInclGST': round(self.total_incl_gst, 2)
+        }
+
+
