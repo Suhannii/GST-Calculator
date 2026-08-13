@@ -50,3 +50,18 @@ class InvoiceItem:
         self.qty = int(qty)
         self.id = item_id # Store the unique ID from the frontend
 
+    @property
+    def subtotal(self):
+        """Total price of this item (Excl. GST)"""
+        return self.price * self.qty
+
+    @property
+    def total_gst(self):
+        """Total GST amount for this item"""
+        return self.subtotal * (self.category['rate'] / 100)
+
+    @property
+    def total_incl_gst(self):
+        """Total price of this item (Incl. GST)"""
+        return self.subtotal + self.total_gst
+
