@@ -109,3 +109,12 @@ class Invoice:
 # 2. Flask API Setup
 # ----------------------------------------------------
 
+app = Flask(__name__)
+# Enable CORS for development so the frontend can talk to the backend
+CORS(app)
+
+@app.route('/')
+def index():
+    """Serve the frontend."""
+    return send_from_directory(os.path.dirname(__file__), 'index.html')
+
