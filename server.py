@@ -118,3 +118,28 @@ def index():
     """Serve the frontend."""
     return send_from_directory(os.path.dirname(__file__), 'index.html')
 
+@app.route('/categories', methods=['GET'])
+def get_categories():
+    """Endpoint to fetch all GST categories and rates for the dropdown."""
+    return jsonify(GSTCategory.get_all_categories())
+
+# === NEW FEATURE: Add Category Endpoint ===
+@app.route('/add-category', methods=['POST'])
+def add_category():
+    """Endpoint to add a new dynamic category."""
+    data = request.get_json()
+    name = data.get('name')
+    rate = data.get('rate')
+
+    if name and rate is not None:
+        try:
+            # Add to the *in-memory* dictionary
+            GSTCategory.default_rates[name.lower()] = int(rate)
+            return jsonify({"message": "Category added successfully"}), 201
+        except Exception as e:
+            return jsonify({"error": str(e)}), 400
+            
+    return jsonify({"error": "Invalid data, 'name' and 'rate' are required."}), 400
+# === END OF NEW FEATURE ===
+
+
