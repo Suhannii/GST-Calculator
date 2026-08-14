@@ -92,3 +92,16 @@ class Invoice:
                 )
                 self.items.append(item)
 
+    @property
+    def totals(self):
+        subtotal = sum(item.subtotal for item in self.items)
+        total_gst = sum(item.total_gst for item in self.items)
+        grand_total = sum(item.total_incl_gst for item in self.items)
+
+        return {
+            "subtotal": round(subtotal, 2),
+            "totalGST": round(total_gst, 2),
+            "grandTotal": round(grand_total, 2),
+            "taxableValue": round(subtotal, 2) # Same as subtotal in this context
+        }
+
