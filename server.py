@@ -75,4 +75,20 @@ class InvoiceItem:
             'totalInclGST': round(self.total_incl_gst, 2)
         }
 
+class Invoice:
+    def __init__(self, items_data):
+        self.items = []
+        for item_data in items_data:
+            category_data = GSTCategory.get_category_data(item_data['categoryName'])
+            if category_data:
+                # Ensure 'id' is passed; default to None if not present
+                item_id = item_data.get('id', None) 
+                item = InvoiceItem(
+                    item_data['itemName'],
+                    category_data,
+                    item_data['itemPrice'],
+                    item_data['itemQty'],
+                    item_id # --- PASS THE ID ---
+                )
+                self.items.append(item)
 
