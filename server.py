@@ -105,3 +105,7 @@ class Invoice:
             "taxableValue": round(subtotal, 2) # Same as subtotal in this context
         }
 
+# ----------------------------------------------------
+# 2. Flask API Setup
+# ----------------------------------------------------
+
