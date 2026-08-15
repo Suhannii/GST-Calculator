@@ -143,3 +143,23 @@ def add_category():
 # === END OF NEW FEATURE ===
 
 
+@app.route('/calculate', methods=['POST'])
+def calculate_invoice():
+    """
+    Endpoint to receive item data and return the calculated invoice totals.
+    """
+    data = request.get_json()
+    items_data = data.get('items', [])
+
+    try:
+        invoice = Invoice(items_data)
+        totals = invoice.totals
+        
+        # This now includes the item 'id'
+        processed_items = [item.to_dict() for item in invoice.items]
+        
+        return jsonify({
+            "totals": totals,
+            "processedItems": processed_items
+        }), 200
+
