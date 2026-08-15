@@ -1,1 +1,14 @@
+/* === GLASSMORPHISM REDESIGN v2 (CURVIER) === */
 
+:root {
+    --primary-color: #6366F1; /* Indigo 500 */
+    --primary-light: #e0e7ff; /* Indigo 100 */
+    --text-light: #f3f4f6; /* Gray 100 */
+    --text-medium: #d1d5db; /* Gray 300 */
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --error-color: #F87171; /* Red 400 */
+    --warning-color: #FBBF24; /* Amber 400 */
+    --success-color: #34D399; /* Green 400 */
+}
