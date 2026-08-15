@@ -163,3 +163,13 @@ def calculate_invoice():
             "processedItems": processed_items
         }), 200
 
+    except Exception as e:
+        print(f"Error during calculation: {e}")
+        return jsonify({"error": "An error occurred during calculation.", "details": str(e)}), 400
+
+if __name__ == '__main__':
+    # To run this server: python server.py
+    # It will be accessible at http://127.0.0.1:5000/
+    print("Starting Flask server on http://127.0.0.1:5000/")
+    app.run(debug=True)
+
