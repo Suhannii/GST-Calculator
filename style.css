@@ -12,3 +12,14 @@
     --warning-color: #FBBF24; /* Amber 400 */
     --success-color: #34D399; /* Green 400 */
 }
+
+/* 1. Colourful Background */
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 1.5rem;
+    color: var(--text-light);
+    background: linear-gradient(135deg, #4f0080, #002c8a, #008080, #800040);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
