@@ -91,6 +91,7 @@ header p { color: var(--text-medium); margin-top: 0.5rem; }
 .card-primary {
     border-top: none;
 }
+
 /* 3. Light Text & Inputs (NOW CURVIER) */
 .input-group {
     display: grid;
