@@ -111,4 +111,10 @@ header p { color: var(--text-medium); margin-top: 0.5rem; }
    This new class makes the button's container stretch
    so it can align its content (the button) properly.
 */
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
 
