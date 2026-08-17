@@ -107,3 +107,8 @@ header p { color: var(--text-medium); margin-top: 0.5rem; }
     .span-1-col-lg { grid-column: span 1; }
 }
 
+/* === ALIGNMENT FIX === 
+   This new class makes the button's container stretch
+   so it can align its content (the button) properly.
+*/
+
