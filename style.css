@@ -99,3 +99,11 @@ header p { color: var(--text-medium); margin-top: 0.5rem; }
     gap: 1rem;
     align-items: end; /* This aligns all grid items to the bottom */
 }
+@media (min-width: 768px) {
+    .input-group-2-col { grid-template-columns: repeat(2, 1fr); }
+    .input-group-3-col { grid-template-columns: repeat(3, 1fr); }
+    .input-group-5-col { grid-template-columns: repeat(5, 1fr); }
+    .span-2-col { grid-column: span 2; }
+    .span-1-col-lg { grid-column: span 1; }
+}
+
