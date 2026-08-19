@@ -162,4 +162,17 @@ label {
     width: 100%;
     box-shadow: 0 4px 15px -3px rgb(0, 251, 255);
 }
-
+.btn-primary:hover {
+    background-color: #4f46e5;
+    box-shadow: 0 9px 20px -3px rgba(255, 0, 225, 0.809);
+    transform: translateY(-2px);
+}
+.btn-primary:active {
+    transform: scale(0.98);
+}
+.btn-primary:disabled {
+    background-color: #4b5563;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
