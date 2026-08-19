@@ -189,3 +189,23 @@ label {
 }
 .info-box span { font-weight: 600; font-family: monospace; color: #ffffff; }
 
+/* Item Table */
+.item-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+}
+.item-table th, .item-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+.item-table th {
+    background: transparent;
+    font-weight: 600;
+    color: var(--text-medium);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+}
+.item-table td:last-child, .item-table th:last-child { text-align: right; }
+
