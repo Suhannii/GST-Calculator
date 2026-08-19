@@ -176,3 +176,15 @@ label {
     transform: none;
     box-shadow: none;
 }
+
+/* Invoice Summary Box */
+.info-box {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: var(--input-bg);
+    border-radius: 0.75rem; /* Increased curve */
+    font-size: 0.875rem;
+    color: var(--text-light);
+    border: 1px solid var(--glass-border);
+}
+.info-box span { font-weight: 600; font-family: monospace; color: #ffffff; }
