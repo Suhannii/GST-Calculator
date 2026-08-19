@@ -238,3 +238,19 @@ label {
     padding-bottom: 0.75rem;
     margin-bottom: 1.5rem;
 }
+.summary-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+.summary-detail strong { font-weight: 600; color: #ffffff; }
+.summary-total {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--glass-border);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+}
