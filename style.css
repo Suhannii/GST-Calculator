@@ -225,6 +225,10 @@ label {
 }
 
 /* Summary Panel (Sidebar) */
-
+.summary-panel {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+}
 
 
