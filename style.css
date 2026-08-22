@@ -274,4 +274,12 @@ label {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+.msg-loading { background-color: var(--warning-color); color: #1f2937; }
+.msg-error { background-color: var(--error-color); }
+.msg-success { background-color: var(--success-color); color: #1f2937; }
+
+/* --- Print Styles (FIXED) --- */
+#customerInfoPrint {
+    display: none;
+}
 
