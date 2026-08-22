@@ -260,3 +260,18 @@ label {
     margin-top: 2rem;
 }
 
+/* Loading/Error Message (NOW CURVIER) */
+#messageBox {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem; /* Increased curve */
+    color: white;
+    z-index: 1000;
+    display: none;
+    font-weight: 600;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
