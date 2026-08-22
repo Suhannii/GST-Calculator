@@ -246,3 +246,17 @@ label {
     color: var(--text-light);
 }
 
+.summary-detail strong { font-weight: 600; color: #ffffff; }
+.summary-total {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--glass-border);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+.summary-total span { color: var(--primary-color); }
+.summary-print-btn {
+    margin-top: 2rem;
+}
+
