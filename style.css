@@ -283,3 +283,15 @@ label {
     display: none;
 }
 
+@media print {
+    body { 
+        background: white !important; 
+        padding: 1rem;
+        color: black !important; 
+    }
+    .container { max-width: none; margin: 0; }
+    
+    /* === PRINT FIX === */
+    #customerInputCard, #addItemCard, #addCategoryCard, .summary-print-btn, #messageBox { 
+        display: none !important; 
+    }
