@@ -347,3 +347,30 @@ label {
         color: black !important;
     }
     .summary-panel h2 { font-size: 1.25rem; border: none; }
+
+        /* === PRINT FIX === */
+    #invoiceItemsCard {
+        display: block !important;
+    }
+    #itemListContainer { 
+        display: block !important;
+        margin-top: 0;
+    }
+    .invoice-items-print-header {
+        display: block !important;
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        color: black !important;
+    }
+    .item-table th, .item-table td { 
+        border-bottom: 1px solid #ccc;
+        color: black !important;
+        background: none !important;
+    }
+    .item-table th { background-color: #f3f4f6 !important; }
+    
+    .item-table th:last-child, .item-table td:last-child {
+        display: none;
+    }
+}
