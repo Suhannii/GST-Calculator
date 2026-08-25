@@ -79,3 +79,9 @@ async function fetchCategories() {
         } else {
             categorySelect.value = categories.length > 0 ? categories[0].name : '';
         }
+        showMessage('Server connected! Categories loaded.', 'success');
+        
+    } catch (error) {
+        showMessage(`CRITICAL ERROR: Could not connect to Python backend at ${API_BASE_URL}. Please ensure 'server.py' is running.`, 'error');
+    }
+}
