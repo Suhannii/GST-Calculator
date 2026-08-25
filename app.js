@@ -63,3 +63,19 @@ async function fetchCategories() {
                 }
             }
         }
+        if (!response || !response.ok) throw new Error('Failed to fetch categories after multiple retries.');
+        const categories = await response.json();
+        const categorySelect = $('itemCategory');
+        const currentVal = categorySelect.value; // Save current selection
+        
+        categorySelect.innerHTML = categories.map(cat => 
+            `<option value="${cat.name}">${cat.name} (${cat.rate}%)</option>`
+        ).join('');
+        
+        // Try to restore previous selection, or default to first
+        const matchingOption = categories.find(cat => cat.name === currentVal);
+        if (matchingOption) {
+            categorySelect.value = currentVal;
+        } else {
+            categorySelect.value = categories.length > 0 ? categories[0].name : '';
+        }
