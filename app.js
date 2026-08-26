@@ -106,3 +106,21 @@ async function fetchInvoiceTotals() {
             id: item.id
         }))
     };
+    try {
+        const response = await fetch(`${API_BASE_URL}/calculate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+        if (!response.ok) {
+            throw new Error(result.error || 'Server error during calculation.');
+        }
+        renderTotals(result.totals);
+        renderItems(result.processedItems); 
+        showMessage('Calculation successful!', 'success');
+    } catch (error) {
+        renderTotals({ subtotal: 0, totalGST: 0, grandTotal: 0, taxableValue: 0 });
+        showMessage(`Calculation Error: Could not get totals. Details: ${error.message}`, 'error');
+    }
+}
