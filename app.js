@@ -124,3 +124,21 @@ async function fetchInvoiceTotals() {
         showMessage(`Calculation Error: Could not get totals. Details: ${error.message}`, 'error');
     }
 }
+
+// --- Rendering & UI Management ---
+
+const renderTotals = (totals) => {
+    $('subtotalDisplay').textContent = formatCurrency(totals.subtotal);
+    $('totalGSTDisplay').textContent = formatCurrency(totals.totalGST);
+    $('taxableValueDisplay').textContent = formatCurrency(totals.taxableValue);
+    $('grandTotalDisplay').textContent = formatCurrency(totals.grandTotal);
+};
+
+// RenderItems function (with delete button)
+const renderItems = (processedItems) => {
+     const invoiceItemsTableBody = $('invoiceItemsTableBody');
+     
+     if (processedItems.length === 0) {
+        invoiceItemsTableBody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-medium); padding: 2rem 0;">No items added yet.</td></tr>';
+        return;
+    }
