@@ -142,3 +142,21 @@ const renderItems = (processedItems) => {
         invoiceItemsTableBody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-medium); padding: 2rem 0;">No items added yet.</td></tr>';
         return;
     }
+
+    invoiceItemsTableBody.innerHTML = processedItems.map((item) => {
+        const itemId = item.id;
+        const gstRate = (item.category && item.category.rate !== undefined) ? item.category.rate : 'N/A';
+        
+        return `
+            <tr data-id="${itemId}">
+                <td style="font-weight: 600;">${item.name}</td>
+                <td>${item.category ? item.category.name : 'Unknown'}</td>
+                <td style="text-align: center;">${item.qty}</td>
+                <td>${formatCurrency(item.subtotal)}</td>
+                <td style="text-align: center;">${gstRate}%</td>
+                <td style="font-weight: 600;">${formatCurrency(item.totalInclGST)}</td>
+                <td style="text-align: right;"><button class="btn-delete" data-id="${itemId}">&#10005;</button></td>
+            </tr>
+        `;
+    }).join('');
+};
